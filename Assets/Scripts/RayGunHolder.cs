@@ -79,9 +79,9 @@ public class GunSystem : MonoBehaviour
             Debug.Log(rayHit.collider.name);
 
 
-            if (rayHit.collider.CompareTag("Enemy")){
-                //Some shitty code that would call in case of hitting the MF
-            }
+            // if (rayHit.collider.CompareTag("Enemy")){
+            //     Some shitty code that would call in case of hitting the MF
+            // }
         }
 
 
