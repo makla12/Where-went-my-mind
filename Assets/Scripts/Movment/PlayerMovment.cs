@@ -68,8 +68,7 @@ public class PlayerMovment : MonoBehaviour
     private void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        playerRigidbody.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        moveDirection.y = 0f;
 
         if(grounded) playerRigidbody.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 

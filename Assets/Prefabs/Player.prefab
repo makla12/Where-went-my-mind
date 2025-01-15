@@ -247,10 +247,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   groundDrag: 5
+  jumpForce: 12
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  jumpKey: 32
+  playerHeight: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   orientation: {fileID: 8104662909797468169}
+  playerRigidbody: {fileID: 1804824113858728794}
 --- !u!1 &3057917270257847438
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +351,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3057917270257847438}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1bf98cae75c1bed47a5b67e5548eb261, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
