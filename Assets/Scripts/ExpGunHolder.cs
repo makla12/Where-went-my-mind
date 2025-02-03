@@ -6,7 +6,7 @@ public class ProjectileGunSystem : MonoBehaviour
 {
     //Gun stats
     public int damage;
-    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+    public float bulletSpeed, timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
@@ -90,8 +90,12 @@ public class ProjectileGunSystem : MonoBehaviour
 
 
         //Graphics
-        Instantiate(projectileObject, attackPoint.position, Quaternion.Euler(0, 180, 0));
+        GameObject bullet = Instantiate(projectileObject, attackPoint.position, Quaternion.Euler(0, 180, 0));
         // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);     In case we want to add some effects from shoot
+
+        Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+
+        bulletRigidbody.AddForce(attackPoint.forward * bulletSpeed, ForceMode.Impulse);
 
 
         bulletsLeft--;
