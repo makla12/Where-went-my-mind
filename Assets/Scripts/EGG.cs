@@ -6,7 +6,7 @@ public class EGG : MonoBehaviour
     [SerializeField] private float eggForce = 10f;
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("bullet")){
-            Debug.Log("EGG!!!!!!!!");
+            Debug.Log("EGG!");
             rb.AddForce(Vector3.up * eggForce, ForceMode.Impulse);
         }
     }

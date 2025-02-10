@@ -227,6 +227,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108776296}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &293571767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 758670853528906245, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+  m_PrefabInstance: {fileID: 902034568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &293571769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293571767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b044ebb0966da904481509ea42cb011a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  bulletSpeed: 10
+  timeBetweenShooting: 0.1
+  spread: 0.1
+  range: 1
+  reloadTime: 1
+  timeBetweenShots: 0.99
+  magazineSize: 100
+  bulletsPerTap: 1
+  allowButtonHold: 0
+  fpsCam: {fileID: 432900246}
+  attackPoint: {fileID: 826874179}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  muzzleFlash: {fileID: 0}
+  projectileObject: {fileID: 7507388215229874349, guid: 4081adf0e9567444b88b1df8aab85796, type: 3}
+  text: {fileID: 500206490}
 --- !u!1 &301205888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,6 +2068,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817186506}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &826874179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2012460295112255342, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+  m_PrefabInstance: {fileID: 902034568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,13 +2589,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8751381479969473441, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 500206490}
+    - target: {fileID: 8751381479969473441, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 432900246}
+    - target: {fileID: 8751381479969473441, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1508249463837780345, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 758670853528906245, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1983693444}
+      addedObject: {fileID: 293571769}
   m_SourcePrefab: {fileID: 100100000, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
 --- !u!4 &902034569 stripped
 Transform:
