@@ -106,7 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce11b4f3cb1cdb6469ae85fb0c6ea1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeed: 10
+  normalSpeed: 15
+  slideSpeed: 0
+  speedIncreaseMultiplier: 0
+  slopeIncreaseMultiplier: 0
   groundDrag: 5
   jumpForce: 12
   jumpCooldown: 0.25
@@ -119,8 +122,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  maxSlopeAngle: 0
   orientation: {fileID: 8104662909797468169}
-  playerRigidbody: {fileID: 1804824113858728794}
+  state: 0
+  sliding: 0
 --- !u!1 &3057917270257847438
 GameObject:
   m_ObjectHideFlags: 0
