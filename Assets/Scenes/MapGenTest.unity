@@ -164,7 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 3298001007409178693, guid: 964e004ecb29b6047bec5dbe3523f320, type: 3}
-  floor: {fileID: 369805868904107802, guid: 9dcd79090ede600478b91dd60ec4d8d2, type: 3}
+  hospitalRooms:
+  - {fileID: 369805868904107802, guid: 9dcd79090ede600478b91dd60ec4d8d2, type: 3}
+  - {fileID: 369805868904107802, guid: 811f317015c53314e9fe6393b8414910, type: 3}
   normalWall: {fileID: 2909299374460032522, guid: c4352b9464478e248ab0a3e285d232a2, type: 3}
   wallWithDoor: {fileID: 9201425755716583281, guid: b27afc99f2f381248a0421d76788a2d3, type: 3}
 --- !u!20 &432900246 stripped
