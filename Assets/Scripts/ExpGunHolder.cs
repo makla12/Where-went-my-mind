@@ -10,6 +10,7 @@ public class ProjectileGunSystem : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
+    public PauseMenu pauseMenu;
 
 
     //bools 
@@ -54,7 +55,7 @@ public class ProjectileGunSystem : MonoBehaviour
 
 
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0){
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && !(pauseMenu.gameIsPaused)){
             bulletsShot = bulletsPerTap;
             Shoot();
         }
