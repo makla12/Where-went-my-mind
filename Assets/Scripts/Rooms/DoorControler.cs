@@ -13,15 +13,4 @@ public class DoorControler : MonoBehaviour
     {
         animControler.SetBool("DoorIsOpen", false);
     }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            OpenDoor();
-        }
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            CloseDoor();
-        }
-    }
 }

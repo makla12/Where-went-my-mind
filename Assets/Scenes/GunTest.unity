@@ -1974,6 +1974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713679685}
   - component: {fileID: 713679686}
+  - component: {fileID: 713679687}
   m_Layer: 0
   m_Name: gun
   m_TagString: Untagged
@@ -2005,7 +2006,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713679684}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b044ebb0966da904481509ea42cb011a, type: 3}
   m_Name: 
@@ -2028,6 +2029,36 @@ MonoBehaviour:
     m_Bits: 0
   muzzleFlash: {fileID: 0}
   projectileObject: {fileID: 7507388215229874349, guid: 4081adf0e9567444b88b1df8aab85796, type: 3}
+  text: {fileID: 500206490}
+--- !u!114 &713679687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713679684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f5600e00f17bd48870265d26486772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  timeBetweenShooting: 0.1
+  spread: 0
+  range: 30
+  reloadTime: 2
+  timeBetweenShots: 0.1
+  magazineSize: 30
+  bulletsPerTap: 1
+  allowButtonHold: 1
+  pauseMenu: {fileID: 1306807545}
+  fpsCam: {fileID: 432900246}
+  attackPoint: {fileID: 662610680}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  muzzleFlash: {fileID: 8386198169617689470, guid: 704debab8c410034eb08ad457eedefe3, type: 3}
+  bulletHoleGraphic: {fileID: 1498879833396041617, guid: d422f7e922abd0f4289f065ea89aa134, type: 3}
   text: {fileID: 500206490}
 --- !u!1001 &759296881
 PrefabInstance:
@@ -2571,7 +2602,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876720985}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7f5600e00f17bd48870265d26486772, type: 3}
   m_Name: 
@@ -2675,7 +2706,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876720985}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b044ebb0966da904481509ea42cb011a, type: 3}
   m_Name: 
