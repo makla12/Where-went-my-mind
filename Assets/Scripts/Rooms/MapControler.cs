@@ -5,6 +5,8 @@ using UnityEngine;
 public class MapControler : MonoBehaviour
 {
     [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private GameObject staringRoom;
+    [SerializeField] private GameObject endingRoom;
     [SerializeField] private List<GameObject> hospitalRooms;
     [SerializeField] private GameObject normalWall;
     [SerializeField] private GameObject wallWithDoor;
@@ -74,19 +76,33 @@ public class MapControler : MonoBehaviour
             rooms.Add(room);
         }
 
+        List<Vector2Int> posibleEndingRooms = GetPosibleRooms(rooms);
+        Vector2Int endingRoomPosition = posibleEndingRooms[Random.Range(0, posibleEndingRooms.Count)];
+        GameObject endingRoomObject = Instantiate(roomPrefab, transform);
+        endingRoomObject.transform.position = new Vector3(60 * endingRoomPosition.x, 0, 60 * endingRoomPosition.y);
+        Instantiate(endingRoom, endingRoomObject.transform);
+        GenerateWalls(endingRoomObject, endingRoomPosition, rooms);
+
         foreach(Vector2Int roomPosition in rooms)
         {
             GameObject room = Instantiate(roomPrefab, transform);
             room.transform.position = new Vector3(60 * roomPosition.x, 0, 60 * roomPosition.y);
-            Instantiate(hospitalRooms[Random.Range(0, hospitalRooms.Count)], room.transform);
+            if(roomPosition == new Vector2Int(0, 0))
+            {
+                Instantiate(staringRoom, room.transform);
+            }
+            else
+            {
+                Instantiate(hospitalRooms[Random.Range(0, hospitalRooms.Count)], room.transform);
+            }
 
-            GenerateWalls(room, roomPosition, rooms);
+            GenerateWalls(room, roomPosition, new HashSet<Vector2Int>(rooms) { endingRoomPosition });
         }
     }
 
     void Start()
     {
-        GenerateFloor(20);
+        GenerateFloor(5);
     }
 
 }

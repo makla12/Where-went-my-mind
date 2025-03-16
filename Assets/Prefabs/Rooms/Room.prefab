@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5592744134449060108}
   - component: {fileID: 1648334507330883097}
+  - component: {fileID: 516673541447452328}
   m_Layer: 6
   m_Name: Room
   m_TagString: Untagged
@@ -44,3 +45,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbd19d7f9fae85438aef41e10d8112c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemys: []
+  doors: []
+--- !u!65 &516673541447452328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298001007409178693}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 38, y: 20, z: 38}
+  m_Center: {x: 0, y: 5, z: 0}
