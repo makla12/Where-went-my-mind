@@ -2490,6 +2490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f5600e00f17bd48870265d26486772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunAnimator: {fileID: 0}
   damage: 5
   timeBetweenShooting: 0.1
   spread: 0.02
@@ -4919,18 +4920,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5529856415157407093, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 500206490}
-    - target: {fileID: 5529856415157407093, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
-      propertyPath: fpsCam
-      value: 
-      objectReference: {fileID: 432900246}
-    - target: {fileID: 5529856415157407093, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1306807545}
     - target: {fileID: 8575844692142758303, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: m_Name
       value: Pain roller gun
