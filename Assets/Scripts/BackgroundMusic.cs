@@ -5,7 +5,7 @@ public class BackgroundMusic : MonoBehaviour
 {
     private void Awake() {
         DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("MainMenu");
     }
     
 }
