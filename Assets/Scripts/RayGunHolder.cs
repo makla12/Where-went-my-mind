@@ -80,12 +80,9 @@ public class GunSystem : MonoBehaviour
         //RayCast
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
-            Debug.Log(rayHit.collider.name);
-
-
-            // if (rayHit.collider.CompareTag("Enemy")){
-            //     Some shitty code that would call in case of hitting the MF
-            // }
+            if (rayHit.collider.CompareTag("Enemy")){
+                rayHit.collider.GetComponent<EnemyControler>().TakeDamage(damage);
+            }
         }
 
 
@@ -94,7 +91,7 @@ public class GunSystem : MonoBehaviour
 
 
         //Graphics
-        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+        // Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);     In case we want to add some effects from shoot
 
 

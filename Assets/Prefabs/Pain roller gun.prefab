@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunAnimator: {fileID: 7576931692463850307}
-  damage: 2
+  damage: 1
   timeBetweenShooting: 0.1
   spread: 0
   range: 30
