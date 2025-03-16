@@ -19,12 +19,10 @@ public class EnemyAttackScript : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            Debug.Log(normalDamage);
-            // PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            // if (playerHealth != null)
-            // {
-            //     playerHealth.TakeDamage(normalDamage);
-            // }
+            if (player.TryGetComponent<PlayerControler>(out var playerHealth))
+            {
+                playerHealth.TakeDamage(normalDamage);
+            }
         }
 
         // Reset attack after cooldown
@@ -36,13 +34,11 @@ public class EnemyAttackScript : MonoBehaviour
         if (hasCrashed) return; // Prevent multiple crushes
 
         hasCrashed = true; // Mark the crash as done
-            Debug.Log(crushDamage);
 
-        // PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        // if (playerHealth != null)
-        // {
-        //     playerHealth.TakeDamage(crushDamage);
-        // }
+        if (player.TryGetComponent<PlayerControler>(out var playerHealth))
+        {
+            playerHealth.TakeDamage(crushDamage);
+        }
 
         Debug.Log("Crush Attack triggered!");
     }

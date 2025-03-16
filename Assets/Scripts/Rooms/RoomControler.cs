@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RoomControler : MonoBehaviour
 {
-    public List<GameObject> enemys = new();
+    private bool roomCompleted = false;
+    public List<EnemyControler> enemys = new();
     public List<DoorControler> doors = new();
 
     private void CloseDoors()
@@ -23,12 +24,40 @@ public class RoomControler : MonoBehaviour
         }
     }
 
-    private void Update() {
-        foreach(GameObject enemy in enemys)
+    public void OnTriggerEnter(Collider other) {
+        Debug.Log(other.tag);
+        if(other.CompareTag("Player") && !roomCompleted)
         {
-            if(enemy == null) enemys.Remove(enemy);
+            CloseDoors();
         }
-        if(enemys.Count == 0) OpenDoors();
-        else CloseDoors();
+    }
+
+    private void Start() {
+        OpenDoors();
+        enemys.AddRange(gameObject.GetComponentsInChildren<EnemyControler>());
+    }
+
+    private void Update()
+    {
+        List<EnemyControler> enemiesToRemove = new List<EnemyControler>();
+
+        foreach (EnemyControler enemy in enemys)
+        {
+            if (enemy.health <= 0)
+            {
+                enemiesToRemove.Add(enemy);
+            }
+        }
+
+        foreach (EnemyControler enemy in enemiesToRemove)
+        {
+            enemys.Remove(enemy);
+        }
+
+        if (enemys.Count == 0 && !roomCompleted)
+        {
+            roomCompleted = true;
+            OpenDoors();
+        }
     }
 }

@@ -41,9 +41,6 @@ public class GunSystem : MonoBehaviour
     private void Update()
     {
         MyInput();
-        if(shooting) gunAnimator.SetBool("Shooting", true);
-        else gunAnimator.SetBool("Shooting", false);
-
 
         //SetText
         text.SetText(bulletsLeft + " / " + magazineSize);
@@ -58,10 +55,12 @@ public class GunSystem : MonoBehaviour
 
 
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && !(pauseMenu.gameIsPaused)) {
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && !pauseMenu.gameIsPaused) {
+            gunAnimator.SetBool("Shooting", true);
             bulletsShot = bulletsPerTap;
             Shoot();
         }
+        else gunAnimator.SetBool("Shooting", false);
     }
     private void Shoot()
     {

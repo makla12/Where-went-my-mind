@@ -28,22 +28,22 @@ public class EnemyMovement : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
         }
-        
+
         colliderManager = GetComponent<EnemyColliderManager>(); // Reference new script
         enemyAttack = GetComponent<EnemyAttackScript>();
-        
+
         rb.AddForce((player.position - transform.position).normalized * 2f, ForceMode.Acceleration);
-        
+
     }
 
-     void MoveTowardsPlayer(float speed)
+    void MoveTowardsPlayer(float speed)
     {
         Vector3 direction = (player.position - transform.position).normalized;
-    
+
         // Rotate the enemy to face the player
         Quaternion targetRotation = Quaternion.LookRotation(-new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-        
+
         // Move towards the player using Rigidbody
         rb.AddForce(direction * speed, ForceMode.Acceleration);
     }
@@ -78,20 +78,22 @@ public class EnemyMovement : MonoBehaviour
             case EnemyState.Crawling:
                 MoveTowardsPlayer(crawlSpeed);
                 if (distance <= attackRange)
-                {   
+                {
                     currentState = EnemyState.Attacking;
                     animator.SetBool("IsAttacking", true);
                 }
-                else{
+                else
+                {
                     currentState = EnemyState.Crawling;
                     animator.SetBool("IsAttacking", false);
                 }
                 break;
 
             case EnemyState.Attacking:
-            
+
                 enemyAttack.PerformAttack();
-                if (distance >= attackRange){
+                if (distance >= attackRange)
+                {
                     animator.SetBool("IsAttacking", false);
                     currentState = EnemyState.Crawling;
                 }
@@ -100,7 +102,7 @@ public class EnemyMovement : MonoBehaviour
 
         }
     }
-    
+
     void StartCrush()
     {
         currentState = EnemyState.Crushing;
@@ -110,7 +112,7 @@ public class EnemyMovement : MonoBehaviour
         Vector3 crushDirection = (player.position - transform.position).normalized;
         rb.AddForce(crushDirection * crushSpeed, ForceMode.Impulse);
 
-        
+
         colliderManager.ChangeCollider(crushDuration);
 
         StartCoroutine(WaitAndStartCrawling(crushDuration));
@@ -125,15 +127,15 @@ public class EnemyMovement : MonoBehaviour
         animator.SetBool("IsCrushing", false);
         animator.SetBool("IsCrawling", true);
     }
-    
+
     void OnCollisionEnter(Collision collision)
     {
         if (currentState == EnemyState.Crushing && collision.gameObject.CompareTag("Player"))
         {
-            enemyAttack.CrushAttack(collision.gameObject);
-            
+            enemyAttack.CrushAttack(player.gameObject);
+
 
         }
     }
-    
+
 }
