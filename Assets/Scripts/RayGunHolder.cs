@@ -4,6 +4,7 @@ using TMPro;
 
 public class GunSystem : MonoBehaviour
 {
+    public Animator gunAnimator;
     //Gun stats
     public int damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
@@ -40,6 +41,8 @@ public class GunSystem : MonoBehaviour
     private void Update()
     {
         MyInput();
+        if(shooting) gunAnimator.SetBool("Shooting", true);
+        else gunAnimator.SetBool("Shooting", false);
 
 
         //SetText
@@ -113,10 +116,12 @@ public class GunSystem : MonoBehaviour
     {
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
+        gunAnimator.SetBool("Reloading", true);
     }
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
         reloading = false;
+        gunAnimator.SetBool("Reloading", false);
     }
 }

@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8127405537335744463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5397792312698250231}
+  m_Layer: 0
+  m_Name: BulletStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5397792312698250231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127405537335744463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4564628222804701009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8575844692142758303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4564628222804701009}
+  - component: {fileID: 970309632699140128}
+  m_Layer: 0
+  m_Name: Pain roller gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4564628222804701009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575844692142758303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5397792312698250231}
+  - {fileID: 3846867759957707505}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970309632699140128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575844692142758303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f5600e00f17bd48870265d26486772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunAnimator: {fileID: 7576931692463850307}
+  damage: 2
+  timeBetweenShooting: 0.1
+  spread: 0
+  range: 30
+  reloadTime: 2
+  timeBetweenShots: 0.1
+  magazineSize: 30
+  bulletsPerTap: 1
+  allowButtonHold: 1
+  pauseMenu: {fileID: 0}
+  fpsCam: {fileID: 0}
+  attackPoint: {fileID: 5397792312698250231}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  muzzleFlash: {fileID: 8386198169617689470, guid: 704debab8c410034eb08ad457eedefe3, type: 3}
+  bulletHoleGraphic: {fileID: 1498879833396041617, guid: d422f7e922abd0f4289f065ea89aa134, type: 3}
+  text: {fileID: 0}
+--- !u!1001 &8793577276399757769
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4564628222804701009}
+    m_Modifications:
+    - target: {fileID: -7840867231617242486, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d47be385e61b67d4ba66a9ee9a16672b, type: 2}
+    - target: {fileID: -7840867231617242486, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_CullingMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7840867231617242486, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.345
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5279999
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.654
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357118449180629203, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Name
+      value: paintRoller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 8686905464242370237, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+--- !u!4 &3846867759957707505 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+  m_PrefabInstance: {fileID: 8793577276399757769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7576931692463850307 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -7840867231617242486, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+  m_PrefabInstance: {fileID: 8793577276399757769}
+  m_PrefabAsset: {fileID: 0}
