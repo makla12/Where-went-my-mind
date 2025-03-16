@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+
     private EnemyColliderManager colliderManager;
+    private EnemyAttackScript enemyAttack; // Reference to attack script
     public float walkSpeed = 50f;
     public float detectionRange = 10f;
     public float attackRange = 2f;
@@ -28,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
         }
         
         colliderManager = GetComponent<EnemyColliderManager>(); // Reference new script
+        enemyAttack = GetComponent<EnemyAttackScript>();
         
         rb.AddForce((player.position - transform.position).normalized * 2f, ForceMode.Acceleration);
         
@@ -77,54 +80,61 @@ public class EnemyMovement : MonoBehaviour
                 MoveTowardsPlayer(crawlSpeed);
                 if (distance <= attackRange)
                 {   
-                    Debug.Log(222);
                     currentState = EnemyState.Attacking;
                     animator.SetBool("IsAttacking", true);
                 }
                 else{
-                    Debug.Log(333);
                     currentState = EnemyState.Crawling;
                     animator.SetBool("IsAttacking", false);
                 }
                 break;
 
             case EnemyState.Attacking:
+            
+                enemyAttack.PerformAttack();
                 if (distance >= attackRange){
-                    Debug.Log(444);
-                    currentState = EnemyState.Crawling;
                     animator.SetBool("IsAttacking", false);
-
+                    currentState = EnemyState.Crawling;
                 }
 
                 break;
 
         }
+    }
     
-        void StartCrush()
-        {
-            currentState = EnemyState.Crushing;
-            animator.SetBool("IsCrushing", true);
+    void StartCrush()
+    {
+        currentState = EnemyState.Crushing;
+        animator.SetBool("IsCrushing", true);
 
-            // Dash forward with high speed
-            Vector3 crushDirection = (player.position - transform.position).normalized;
-            rb.AddForce(crushDirection * crushSpeed, ForceMode.Impulse);
+        // Dash forward with high speed
+        Vector3 crushDirection = (player.position - transform.position).normalized;
+        rb.AddForce(crushDirection * crushSpeed, ForceMode.Impulse);
 
-            
-            colliderManager.ChangeCollider(crushDuration);
+        
+        colliderManager.ChangeCollider(crushDuration);
 
-            StartCoroutine(WaitAndStartCrawling(crushDuration));
+        StartCoroutine(WaitAndStartCrawling(crushDuration));
 
-        }
-
-        IEnumerator WaitAndStartCrawling(float delay)
-        {
-            yield return new WaitForSeconds(delay); // Wait for crushDuration seconds
-
-            currentState = EnemyState.Crawling;
-            animator.SetBool("IsCrushing", false);
-            animator.SetBool("IsCrawling", true);
-        }
     }
 
+    IEnumerator WaitAndStartCrawling(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for crushDuration seconds
+
+        currentState = EnemyState.Crawling;
+        animator.SetBool("IsCrushing", false);
+        animator.SetBool("IsCrawling", true);
+    }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        if (currentState == EnemyState.Crushing && collision.gameObject.CompareTag("Player"))
+        {
+            enemyAttack.CrushAttack(collision.gameObject);
+            
+
+        }
+    }
     
 }
