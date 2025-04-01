@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
     private enum EnemyState { Idle, Walking, Crushing, Crawling, Attacking }
     private EnemyState currentState = EnemyState.Idle;
     public Transform player;
+    public Transform target {get;set;}
+    private NavMeshAgent agent;
 
     private Rigidbody rb;
     private Animator animator;
@@ -23,7 +26,8 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>(); // Finds Animator on Model
-
+        agent = GetComponent<NavMeshAgent>();
+        
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -38,14 +42,13 @@ public class EnemyMovement : MonoBehaviour
 
     void MoveTowardsPlayer(float speed)
     {
-        Vector3 direction = (player.position - transform.position).normalized;
-
-        // Rotate the enemy to face the player
-        Quaternion targetRotation = Quaternion.LookRotation(-new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-
-        // Move towards the player using Rigidbody
-        rb.AddForce(direction * speed, ForceMode.Acceleration);
+        
+        agent.SetDestination(player.position);
+        
+        // Vector3 direction = (player.position - transform.position).normalized;   
+        // Quaternion targetRotation = Quaternion.LookRotation(-new Vector3(direction.x, 0, direction.z));// Rotate the enemy to face the player
+        // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);       
+        // rb.AddForce(direction * speed, ForceMode.Acceleration);// Move towards the player using Rigidbody
     }
     void FixedUpdate()
     {
