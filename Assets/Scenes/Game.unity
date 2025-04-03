@@ -702,6 +702,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440560537}
   m_CullTransparentMesh: 1
+--- !u!20 &464089619 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5843065150161175759, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
+  m_PrefabInstance: {fileID: 1461221538100242114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &559853627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,6 +2386,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4120162764633242804, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
+      propertyPath: m_ClearDepth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5443362526595273918, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: orientation
       value: 
@@ -2397,11 +2406,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6696404350499267177, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696404350499267177, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
+      propertyPath: 'm_Cameras.Array.data[0]'
+      value: 
+      objectReference: {fileID: 464089619}
     - target: {fileID: 7506143493696011682, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 902034570}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8719706669448371703, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
