@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     private int health = 100;
+    private int maxHealth = 100;
+    
+    public int coins = 0;
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private GameObject deathScreen;
 
@@ -17,6 +20,12 @@ public class PlayerControler : MonoBehaviour
     {
         health -= damage;
         health = Mathf.Max(0, health);
+    }
+
+    public void Heal(int amount)
+    {
+        health += amount;
+        health = Mathf.Clamp(health, 0, maxHealth); // Prevent overhealing
     }
 
     private void Die()
