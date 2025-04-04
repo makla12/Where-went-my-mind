@@ -5,10 +5,11 @@ public class PlayerControler : MonoBehaviour
 {
     private int health = 100;
     private int maxHealth = 100;
-    
+
     public int coins = 0;
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private GameObject deathScreen;
+    [SerializeField] private TMP_Text coinsText;
 
     private void Start() {
         Cursor.visible = false;
@@ -39,6 +40,7 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         healthText.text = $"Health: {health}";
+        coinsText.text = $"Coins: {coins}";
         if(health <= 0)
         {
             Die();
