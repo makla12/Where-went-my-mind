@@ -57,11 +57,7 @@ public class EnemyControler : MonoBehaviour
     {
         if (UnityEngine.Random.Range(0, 100) < 15)
         {
-            if (UnityEngine.Random.Range(0, 2) == 0) {
-                Instantiate(Coin, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
-            } else {
-                Instantiate(HealthUp, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
-            }
+            Instantiate(UnityEngine.Random.Range(0, 2) == 0 ? Coin : HealthUp, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
         }
     }
 }
