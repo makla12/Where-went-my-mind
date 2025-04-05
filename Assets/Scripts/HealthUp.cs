@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class HelthUp : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,10 +21,13 @@ public class Coin : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                if (player.TryGetComponent<PlayerControler>(out var playerCoins))
+                if (player.TryGetComponent<PlayerControler>(out var playerHealth))
                 {
-                    playerCoins.coins += 1;
-                    Destroy(gameObject);
+                    if (playerHealth.health < playerHealth.maxHealth)
+                    {
+                        playerHealth.Heal(25);
+                        Destroy(gameObject);
+                    }
                 }
             }
         }

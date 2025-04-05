@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   Coin: {fileID: 5884378261873455205, guid: 01591337f6ff92147977c0622a15b752, type: 3}
+  HealthUp: {fileID: 7897012022180927259, guid: 4704bbf15c43e2647be5b587f1b1fdc2, type: 3}
 --- !u!114 &-1643469619666040408
 MonoBehaviour:
   m_ObjectHideFlags: 0

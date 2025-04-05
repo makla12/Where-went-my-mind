@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyControler : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyControler : MonoBehaviour
     private List<Renderer> enemyRenderers = new List<Renderer>();
     private Dictionary<Renderer, Color> originalColors = new Dictionary<Renderer, Color>();
     public GameObject Coin;
+    public GameObject HealthUp;
 
     private void Start()
     {
@@ -44,19 +46,6 @@ public class EnemyControler : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            // Here will be a health-up or a coin
-
-            /* GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                if (player.TryGetComponent<PlayerControler>(out var playerCoins))
-                {
-                    playerCoins.coins += 1; // Add a coin to the player
-                    Debug.Log($"Player coins: {playerCoins.coins}");
-                    playerCoins.Heal(10); // Heal the player by 10 points
-                }
-            }
-            */
         }
         else
         {
@@ -66,6 +55,13 @@ public class EnemyControler : MonoBehaviour
 
     void OnDestroy()
     {
-        Instantiate(Coin, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
+        if (UnityEngine.Random.Range(0, 100) < 15)
+        {
+            if (UnityEngine.Random.Range(0, 2) == 0) {
+                Instantiate(Coin, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
+            } else {
+                Instantiate(HealthUp, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
+            }
+        }
     }
 }

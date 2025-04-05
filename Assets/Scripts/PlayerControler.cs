@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
 {
-    private int health = 100;
-    private int maxHealth = 100;
+    public int health = 100;
+    public int maxHealth = 100;
 
     public int coins = 0;
     [SerializeField] private TMP_Text healthText;
