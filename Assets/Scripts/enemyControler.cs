@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyControler : MonoBehaviour
@@ -7,6 +8,8 @@ public class EnemyControler : MonoBehaviour
     public int health = 10;
     private List<Renderer> enemyRenderers = new List<Renderer>();
     private Dictionary<Renderer, Color> originalColors = new Dictionary<Renderer, Color>();
+    public GameObject Coin;
+    public GameObject HealthUp;
 
     private void Start()
     {
@@ -47,6 +50,14 @@ public class EnemyControler : MonoBehaviour
         else
         {
             StartCoroutine(FlashRed());
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (UnityEngine.Random.Range(0, 100) < 15)
+        {
+            Instantiate(UnityEngine.Random.Range(0, 2) == 0 ? Coin : HealthUp, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
         }
     }
 }
