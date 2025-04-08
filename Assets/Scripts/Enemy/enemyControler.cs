@@ -31,7 +31,7 @@ public class EnemyControler : MonoBehaviour
             renderer.material.color = Color.red;
         }
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
 
         // Revert the color of all Renderers back to their original color
         foreach (var renderer in enemyRenderers)
@@ -45,6 +45,7 @@ public class EnemyControler : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            StartCoroutine(FlashRed());
             Destroy(gameObject);
         }
         else

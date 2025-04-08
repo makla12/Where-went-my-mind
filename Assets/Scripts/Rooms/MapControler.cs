@@ -104,5 +104,12 @@ public class MapControler : MonoBehaviour
     {
         GenerateFloor(5);
     }
+    void OnApplicationQuit()
+    {
+        foreach (var obj in GameObject.FindGameObjectsWithTag("Coin"))
+        {
+            Destroy(obj);
+        }
+    }
 
 }

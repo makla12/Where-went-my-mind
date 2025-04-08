@@ -15,6 +15,7 @@ public class GunSystem : MonoBehaviour
     public CameraShake cameraShake; // Assign this in the inspector
     public float shakeDuration = 0.2f;
     public float shakeIntensity = 0.5f;
+    public ParticleSystem MuzzleFlash;
 
 
     //bools 
@@ -27,12 +28,6 @@ public class GunSystem : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
 
-
-    //Graphics
-    public GameObject muzzleFlash, bulletHoleGraphic;
-
-    // public CamShake camShake;
-    // public float camShakeMagnitude, camShakeDuration;      In the case if we wanna add some shaking
     public TextMeshProUGUI text;
 
 
@@ -68,6 +63,7 @@ public class GunSystem : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
+        MuzzleFlash.Play();
 
 
         //Spread
