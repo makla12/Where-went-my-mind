@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 
 public class GunSystem : MonoBehaviour
@@ -15,7 +16,11 @@ public class GunSystem : MonoBehaviour
     public CameraShake cameraShake; // Assign this in the inspector
     public float shakeDuration = 0.2f;
     public float shakeIntensity = 0.5f;
-    public ParticleSystem MuzzleFlash;
+    public ParticleSystem MuzzleFlash;  
+    public float Particledelay = 0.1f;
+
+
+  
 
 
     //bools 
@@ -60,10 +65,18 @@ public class GunSystem : MonoBehaviour
         }
         else gunAnimator.SetBool("Shooting", false);
     }
+    private IEnumerator ShootTwice()
+        {
+            MuzzleFlash.Play();
+            yield return new WaitForSeconds(Particledelay);
+            MuzzleFlash.Play();
+        }
     private void Shoot()
     {
         readyToShoot = false;
-        MuzzleFlash.Play();
+
+        StartCoroutine(ShootTwice());
+        
 
 
         //Spread
