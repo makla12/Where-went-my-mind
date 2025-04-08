@@ -12,6 +12,9 @@ public class GunSystem : MonoBehaviour
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
     public PauseMenu pauseMenu;
+    public CameraShake cameraShake; // Assign this in the inspector
+    public float shakeDuration = 0.2f;
+    public float shakeIntensity = 0.5f;
 
 
     //bools 
@@ -85,9 +88,10 @@ public class GunSystem : MonoBehaviour
         }
 
 
-        //ShakeCamera
-        // camShake.Shake(camShakeDuration, camShakeMagnitude);
-
+        if (cameraShake != null)
+        {
+            cameraShake.ShakeCamera(shakeDuration, shakeIntensity);
+        }
 
         //Graphics
         // Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
