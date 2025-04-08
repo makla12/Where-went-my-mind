@@ -2539,12 +2539,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 250275206}
     - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
+      propertyPath: magazineSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
+      propertyPath: bulletsPerTap
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: allowButtonHold
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: timeBetweenShots
-      value: 0.3
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: timeBetweenShooting
@@ -2560,11 +2568,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: lengthInSec
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: InitialModule.maxNumParticles
@@ -2572,7 +2584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
-      value: 0.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7506143493696011682, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: cameraPosition
