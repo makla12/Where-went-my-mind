@@ -22,4 +22,11 @@ public class Coin : MonoBehaviour
             }
         }
     }
+    void OnApplicationQuit()
+    {
+        foreach (var obj in GameObject.FindGameObjectsWithTag("Coin"))
+        {
+            Destroy(obj);
+        }
+    }
 }
