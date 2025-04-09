@@ -79,22 +79,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunAnimator: {fileID: 7576931692463850307}
   damage: 1
-  timeBetweenShooting: 0.12
-  spread: 0.6
+  timeBetweenShooting: 1.5
+  spread: 0.05
   range: 45
   reloadTime: 2
-  timeBetweenShots: 0.1
-  magazineSize: 30
-  bulletsPerTap: 1
+  timeBetweenShots: 0.7
+  magazineSize: 40
+  bulletsPerTap: 2
   allowButtonHold: 1
-  pauseMenu: {fileID: 0}
+  cameraShake: {fileID: 0}
+  shakeDuration: 0.2
+  shakeIntensity: 0.5
+  MuzzleFlash: {fileID: 0}
+  Particledelay: 0.1
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 5397792312698250231}
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 4294967295
-  muzzleFlash: {fileID: 8386198169617689470, guid: 704debab8c410034eb08ad457eedefe3, type: 3}
-  bulletHoleGraphic: {fileID: 1498879833396041617, guid: d422f7e922abd0f4289f065ea89aa134, type: 3}
   text: {fileID: 0}
 --- !u!1001 &8793577276399757769
 PrefabInstance:

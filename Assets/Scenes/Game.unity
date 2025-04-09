@@ -1168,10 +1168,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3057917270257847438, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 3793018044818727615, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
       propertyPath: coinsText
       value: 
@@ -1184,10 +1180,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1121080483}
-    - target: {fileID: 4479511800492482976, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
-      propertyPath: slowWalkSpeed
-      value: 7
-      objectReference: {fileID: 0}
+    - target: {fileID: 4573391810870780783, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 559853629}
     - target: {fileID: 7727351488848663460, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2716,7 +2712,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 902034570}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3062433976571407090, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
