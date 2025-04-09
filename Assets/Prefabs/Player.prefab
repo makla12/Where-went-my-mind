@@ -182,8 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8511e19206f52840a62ddbbac2ec152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: 0
   healthText: {fileID: 0}
   deathScreen: {fileID: 0}
+  coinsText: {fileID: 0}
 --- !u!1 &3057917270257847438
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +200,7 @@ GameObject:
   - component: {fileID: 5795613543023757318}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

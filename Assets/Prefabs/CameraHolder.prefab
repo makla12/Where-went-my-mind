@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7065387631526278611}
   - component: {fileID: 6980053787578248012}
   - component: {fileID: 1250141705847323607}
+  - component: {fileID: 8504674989096873368}
+  - component: {fileID: 6754694163633455749}
   m_Layer: 0
   m_Name: Flash
   m_TagString: Untagged
@@ -41,7 +43,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3248372428758481326}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -106,7 +108,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -604,7 +606,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
     gravitySource: 0
-    maxNumParticles: 120
+    maxNumParticles: 30
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -665,10 +667,10 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 2.66
+    angle: 5.31
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -747,11 +749,11 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 0.83
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.03
       mode: 0
       spread: 0
       speed:
@@ -3796,7 +3798,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3855,7 +3857,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4892,6 +4894,32 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8504674989096873368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3248372428758481326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53739b33dd484d4c9bd6b0c504aff7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!114 &6754694163633455749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3248372428758481326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53739b33dd484d4c9bd6b0c504aff7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &4825986262705282534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,7 +5293,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6957789191445622163}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &4120162764633242804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5340,7 +5368,7 @@ PrefabInstance:
       objectReference: {fileID: 7609129383784822692}
     - target: {fileID: 970309632699140128, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: spread
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 970309632699140128, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: MuzzleFlash
@@ -5352,11 +5380,11 @@ PrefabInstance:
       objectReference: {fileID: 5920931234202530851}
     - target: {fileID: 970309632699140128, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: magazineSize
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 970309632699140128, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: bulletsPerTap
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 970309632699140128, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: shakeDuration
@@ -5368,11 +5396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970309632699140128, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: timeBetweenShots
-      value: 0.2
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 970309632699140128, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: timeBetweenShooting
-      value: 0.7
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4512503167082301843, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
       propertyPath: m_Layer

@@ -35,6 +35,7 @@ public class BugController : MonoBehaviour
         rb.AddForce((player.position - transform.position).normalized * 2f, ForceMode.Acceleration);
 
     }
+    
 
     void MoveTowardsPlayer()
     {
