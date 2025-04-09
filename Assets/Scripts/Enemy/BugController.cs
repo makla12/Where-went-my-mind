@@ -5,13 +5,13 @@ using UnityEngine.AI;
 public class BugController : MonoBehaviour
 {
 
-    private EnemyColliderManager colliderManager;
-    private EnemyAttackScript enemyAttack; // Reference to attack script
-    public float walkSpeed = 50f;
-    public float detectionRange = 10f;
-    public float attackRange = 2f;
+    public EnemyAttackScript enemyAttack; // Reference to attack script
+    public float walkSpeed ;
+    public float detectionRange ;
+    public float ForgettingRange ;
+    public float attackRange ;
 
-    private enum EnemyState { Idle, Walking, Crushing, Crawling, Attacking }
+    private enum EnemyState { Idle, Walking, Attacking }
     private EnemyState currentState = EnemyState.Idle;
     public Transform player;
     public Transform target {get;set;}
@@ -31,7 +31,6 @@ public class BugController : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
         }
 
-        colliderManager = GetComponent<EnemyColliderManager>(); // Reference new script
 
         rb.AddForce((player.position - transform.position).normalized * 2f, ForceMode.Acceleration);
 
@@ -39,9 +38,7 @@ public class BugController : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        
-        agent.SetDestination(player.position);
-        
+        agent.SetDestination(player.position);    
     }
     void FixedUpdate()
     {
@@ -60,38 +57,32 @@ public class BugController : MonoBehaviour
                 break;
 
             case EnemyState.Walking:
-                MoveTowardsPlayer();
-                if (distance <= attackRange)
+                if (distance <= ForgettingRange)
                 {
-                    // StartCrush();
+                   
+                    MoveTowardsPlayer();
+                    if (distance <= attackRange)
+                    {
+                        animator.SetBool("IsAttack", true);
+                        currentState = EnemyState.Attacking;
+                    }
                 }
-                break;
-
-            case EnemyState.Crushing:
-                // Crush handled in StartCrush()
-                break;
-
-            case EnemyState.Crawling:
-                MoveTowardsPlayer();
-                if (distance <= attackRange)
-                {
-                    currentState = EnemyState.Attacking;
-                    animator.SetBool("IsAttacking", true);
+                else{
+                    currentState = EnemyState.Idle;
+                    animator.SetBool("IsAttack", false);
+                    animator.SetBool("IsMoving", false);
                 }
-                else
-                {
-                    currentState = EnemyState.Crawling;
-                    animator.SetBool("IsAttacking", false);
-                }
+               
                 break;
-
             case EnemyState.Attacking:
 
-                enemyAttack.PerformAttack();
-                if (distance >= attackRange)
+                if (distance <= attackRange)
                 {
-                    animator.SetBool("IsAttacking", false);
-                    currentState = EnemyState.Crawling;
+                    animator.SetBool("IsAttack", true);
+                    enemyAttack.PerformAttack();
+                    currentState = EnemyState.Walking;
+                }else{
+                    currentState = EnemyState.Idle;
                 }
 
                 break;
@@ -99,14 +90,5 @@ public class BugController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (currentState == EnemyState.Crushing && collision.gameObject.CompareTag("Player"))
-        {
-            enemyAttack.CrushAttack(player.gameObject);
-
-
-        }
-    }
 
 }
