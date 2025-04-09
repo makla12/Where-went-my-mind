@@ -7,6 +7,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [Header("Movement")]
     private float moveSpeed;
     public float normalSpeed;
+    public float slowWalkSpeed;
     public float slideSpeed;
 
     private float desiredMoveSpeed;
@@ -31,6 +32,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode slowWalkKey = KeyCode.LeftShift;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -56,6 +58,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public enum MovementState
     {
         walking,
+        slowWalking,
         crouching,
         sliding,
         air
@@ -147,8 +150,16 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // Mode - Walking
         else if (grounded)
         {
-            state = MovementState.walking;
-            desiredMoveSpeed = normalSpeed;
+            if(Input.GetKey(slowWalkKey))
+            {
+                state = MovementState.slowWalking;
+                desiredMoveSpeed = slowWalkSpeed;
+            }
+            else
+            {
+                state = MovementState.walking;
+                desiredMoveSpeed = normalSpeed;
+            }
         }
 
         // Mode - Air
@@ -158,7 +169,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         }
 
         // check if desiredMoveSpeed has changed drastically
-        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
+        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0 && state != MovementState.slowWalking && state != MovementState.walking)
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
