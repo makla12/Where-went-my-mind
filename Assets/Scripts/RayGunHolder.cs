@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 
 public class GunSystem : MonoBehaviour
@@ -12,6 +13,14 @@ public class GunSystem : MonoBehaviour
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
     public PauseMenu pauseMenu;
+    public CameraShake cameraShake; // Assign this in the inspector
+    public float shakeDuration = 0.2f;
+    public float shakeIntensity = 0.5f;
+    public ParticleSystem MuzzleFlash;  
+    public float Particledelay = 0.1f;
+
+
+  
 
 
     //bools 
@@ -24,12 +33,6 @@ public class GunSystem : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
 
-
-    //Graphics
-    public GameObject muzzleFlash, bulletHoleGraphic;
-
-    // public CamShake camShake;
-    // public float camShakeMagnitude, camShakeDuration;      In the case if we wanna add some shaking
     public TextMeshProUGUI text;
 
 
@@ -62,9 +65,18 @@ public class GunSystem : MonoBehaviour
         }
         else gunAnimator.SetBool("Shooting", false);
     }
+    private IEnumerator ShootTwice()
+        {
+            MuzzleFlash.Play();
+            yield return new WaitForSeconds(Particledelay);
+            MuzzleFlash.Play();
+        }
     private void Shoot()
     {
         readyToShoot = false;
+
+        StartCoroutine(ShootTwice());
+        
 
 
         //Spread
@@ -85,9 +97,10 @@ public class GunSystem : MonoBehaviour
         }
 
 
-        //ShakeCamera
-        // camShake.Shake(camShakeDuration, camShakeMagnitude);
-
+        if (cameraShake != null)
+        {
+            cameraShake.ShakeCamera(shakeDuration, shakeIntensity);
+        }
 
         //Graphics
         // Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
