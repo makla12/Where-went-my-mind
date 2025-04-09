@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
-    public float sensX ;
+    public float sensX;
     public float sensY;
     
     [SerializeField] private Transform orientation;

@@ -19,9 +19,10 @@ public class HelthUp : MonoBehaviour
                     if (playerHealth.Health < playerHealth.MaxHealth)
                     {
                         playerHealth.Heal(25);
-                        Destroy(gameObject);
                     }
                 }
+                
+                Destroy(gameObject);
             }
         }
     }

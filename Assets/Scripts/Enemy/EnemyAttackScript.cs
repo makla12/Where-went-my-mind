@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAttackScript : MonoBehaviour
 {
-     public int normalDamage = 10; // Regular attack damage
+    public int normalDamage = 10; // Regular attack damage
     public int crushDamage = 25;  // Stronger crush attack damage
     public float attackCooldown = 2f; // Cooldown between normal attacks
     private bool canAttack = true;

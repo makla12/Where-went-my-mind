@@ -109,14 +109,14 @@ public class EnemyMovement : MonoBehaviour
     void StartCrush()
     {
         currentState = EnemyState.Crushing;
-        animator.SetBool("IsCrushing", true);
 
         // Dash forward with high speed
         Vector3 crushDirection = (player.position - transform.position).normalized;
         rb.AddForce(crushDirection * crushSpeed, ForceMode.Impulse);
 
-
         colliderManager.ChangeCollider(crushDuration);
+        
+        animator.SetBool("IsCrushing", true);
 
         StartCoroutine(WaitAndStartCrawling(crushDuration));
 

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - bullet
   - Enemy
+  - GunCamera
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -14,9 +16,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Camera
   - enemies
-  - 
+  - Gun
   - 
   - 
   - 
