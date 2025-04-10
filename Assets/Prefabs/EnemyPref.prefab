@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac4c68db02d8bb48baf8c4e8597de7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
+  health: 100
   Coin: {fileID: 5884378261873455205, guid: 01591337f6ff92147977c0622a15b752, type: 3}
   HealthUp: {fileID: 7897012022180927259, guid: 4704bbf15c43e2647be5b587f1b1fdc2, type: 3}
 --- !u!114 &-1643469619666040408
