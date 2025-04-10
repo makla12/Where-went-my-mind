@@ -79,6 +79,7 @@ public class InventoryControler : MonoBehaviour
         currentWeaponIndex = weaponIndex;
         weapons[currentWeaponIndex].weapon.SetActive(true);
     }
+    
 
     void Start()
     {
