@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4479511800492482976}
   - component: {fileID: 3737035953380105378}
   - component: {fileID: 3793018044818727615}
+  - component: {fileID: 4573391810870780783}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalSpeed: 15
+  slowWalkSpeed: 7
   slideSpeed: 30
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
@@ -144,6 +146,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   jumpKey: 32
   crouchKey: 306
+  slowWalkKey: 304
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -186,6 +189,22 @@ MonoBehaviour:
   healthText: {fileID: 0}
   deathScreen: {fileID: 0}
   coinsText: {fileID: 0}
+--- !u!114 &4573391810870780783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508249463837780345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167d2e0e231430848886a3ef23230bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponStartVisualPrefab: {fileID: 4357118449180629203, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+  weaponStartPrefab: {fileID: 8575844692142758303, guid: e993ec54b8065404180cfc7cae8dda11, type: 3}
+  weaponPickupPrefab: {fileID: 553988104983835085, guid: 716d6f92c9ba35d4fac771455744c82f, type: 3}
+  maxWeapons: 2
 --- !u!1 &3057917270257847438
 GameObject:
   m_ObjectHideFlags: 0
