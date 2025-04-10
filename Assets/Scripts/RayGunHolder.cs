@@ -12,7 +12,6 @@ public class GunSystem : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
-    public PauseMenu pauseMenu;
     public CameraShake cameraShake; // Assign this in the inspector
     public float shakeDuration = 0.2f;
     public float shakeIntensity = 0.5f;
@@ -58,7 +57,7 @@ public class GunSystem : MonoBehaviour
 
 
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && !pauseMenu.gameIsPaused) {
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale != 0) {
             gunAnimator.SetBool("Shooting", true);
             bulletsShot = bulletsPerTap;
             Shoot();
