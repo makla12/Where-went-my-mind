@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ParticleCollisionHandler : MonoBehaviour
 {
-    public int damage = 1; 
+    public int damage ; 
 
     void OnParticleCollision(GameObject other)
     {

@@ -101,8 +101,6 @@ public class GunSystem : MonoBehaviour
         UpdateMuzzleFlash();
         if (MuzzleFlash != null)
         {
-            
-            MuzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             MuzzleFlash.Play();
         }
         else{
@@ -118,18 +116,18 @@ public class GunSystem : MonoBehaviour
 
 
         //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        // Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
 
         //RayCast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
-        {
-            if (rayHit.collider.CompareTag("Enemy")){
-                rayHit.collider.GetComponent<EnemyControler>().TakeDamage(damage);
-            }
-        }
+        // if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        // {
+        //     if (rayHit.collider.CompareTag("Enemy")){
+        //         rayHit.collider.GetComponent<EnemyControler>().TakeDamage(damage);
+        //     }
+        // }
 
-
+ 
         if (cameraShake != null)
         {
             cameraShake.ShakeCamera(shakeDuration, shakeIntensity);
