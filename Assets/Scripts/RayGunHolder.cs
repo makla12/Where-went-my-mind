@@ -17,6 +17,7 @@ public class GunSystem : MonoBehaviour
     public float shakeIntensity = 0.5f;
     public ParticleSystem MuzzleFlash;  
     public float Particledelay = 0.1f;
+    public Transform currentWeapon;
 
 
   
@@ -64,17 +65,50 @@ public class GunSystem : MonoBehaviour
         }
         else gunAnimator.SetBool("Shooting", false);
     }
-    private IEnumerator ShootTwice()
+    
+    void UpdateMuzzleFlash()
+    {   
+        GameObject activeWeapon = FindActiveWeapon();
+
+        if (activeWeapon != null)
         {
-            MuzzleFlash.Play();
-            yield return new WaitForSeconds(Particledelay);
-            MuzzleFlash.Play();
+            Transform particlesTransform = activeWeapon.transform.Find("TostParticles");
+            
+            if (particlesTransform != null)
+            {
+                MuzzleFlash = particlesTransform.GetComponent<ParticleSystem>();
+            }
         }
+    } 
+    private GameObject FindActiveWeapon()
+    {
+        GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
+
+        foreach (GameObject weapon in weapons)
+        {
+            if (weapon.activeSelf) 
+            {
+                return weapon;
+            }
+        }
+
+        return null; 
+    }  
     private void Shoot()
     {
         readyToShoot = false;
-
-        StartCoroutine(ShootTwice());
+        
+        UpdateMuzzleFlash();
+        if (MuzzleFlash != null)
+        {
+            
+            MuzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            MuzzleFlash.Play();
+        }
+        else{
+            
+        }
+        // StartCoroutine(ShootTwice());
         
 
 

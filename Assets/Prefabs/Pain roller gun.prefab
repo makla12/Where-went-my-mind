@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2830592408550607970}
   - component: {fileID: 3825082610987403460}
   m_Layer: 0
-  m_Name: Flash
+  m_Name: PaintParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4964,7 +4964,7 @@ GameObject:
   - component: {fileID: 970309632699140128}
   m_Layer: 0
   m_Name: Pain roller gun
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5004,7 +5004,7 @@ MonoBehaviour:
   timeBetweenShooting: 1.5
   spread: 0.05
   range: 45
-  reloadTime: 3
+  reloadTime: 2.3
   timeBetweenShots: 0.7
   magazineSize: 8
   bulletsPerTap: 1
@@ -5012,8 +5012,9 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   shakeDuration: 0.2
   shakeIntensity: 0.5
-  MuzzleFlash: {fileID: 0}
+  MuzzleFlash: {fileID: 1086252455412611868}
   Particledelay: 0.1
+  currentWeapon: {fileID: 0}
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 5397792312698250231}
   whatIsEnemy:

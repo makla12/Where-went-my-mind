@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2830592408550607970}
   - component: {fileID: 3825082610987403460}
   m_Layer: 0
-  m_Name: Flash
+  m_Name: TostParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.74
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -606,7 +606,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
     gravitySource: 0
-    maxNumParticles: 53
+    maxNumParticles: 1
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4964,7 +4964,7 @@ GameObject:
   - component: {fileID: 970309632699140128}
   m_Layer: 0
   m_Name: TosterGun
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5010,10 +5010,11 @@ MonoBehaviour:
   bulletsPerTap: 1
   allowButtonHold: 1
   cameraShake: {fileID: 0}
-  shakeDuration: 0.03
-  shakeIntensity: 0.08
-  MuzzleFlash: {fileID: 0}
+  shakeDuration: 0.05
+  shakeIntensity: 0.15
+  MuzzleFlash: {fileID: 1086252455412611868}
   Particledelay: 0.1
+  currentWeapon: {fileID: 0}
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 5397792312698250231}
   whatIsEnemy:
