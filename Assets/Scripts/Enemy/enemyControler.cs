@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyControler : MonoBehaviour
 {
-    public int health = 10;
+    public int health;
     private List<Renderer> enemyRenderers = new List<Renderer>();
     private Dictionary<Renderer, Color> originalColors = new Dictionary<Renderer, Color>();
     public GameObject Coin;

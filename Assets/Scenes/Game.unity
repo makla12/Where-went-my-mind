@@ -2652,60 +2652,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 559853629}
     - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: spread
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 250275206}
-    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: magazineSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: bulletsPerTap
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: allowButtonHold
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: timeBetweenShots
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767788746096950093, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: timeBetweenShooting
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5822236325373695223, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: m_Name
       value: CameraHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: lengthInSec
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980053787578248012, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
-      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7506143493696011682, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
       propertyPath: cameraPosition

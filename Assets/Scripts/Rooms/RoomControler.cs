@@ -25,7 +25,7 @@ public class RoomControler : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other) {
-        Debug.Log(other.tag);
+        // Debug.Log(other.tag);
         if(other.CompareTag("Player") && !roomCompleted)
         {
             CloseDoors();
