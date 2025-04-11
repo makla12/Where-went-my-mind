@@ -19,10 +19,6 @@ public class GunSystem : MonoBehaviour
     public float Particledelay = 0.1f;
     public Transform currentWeapon;
 
-
-  
-
-
     //bools 
     bool shooting, readyToShoot, reloading;
 
@@ -101,12 +97,13 @@ public class GunSystem : MonoBehaviour
         UpdateMuzzleFlash();
         if (MuzzleFlash != null)
         {
+            
+            MuzzleFlash.Stop();
             MuzzleFlash.Play();
         }
         else{
             
         }
-        // StartCoroutine(ShootTwice());
         
 
 

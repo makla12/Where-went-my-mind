@@ -3683,7 +3683,7 @@ ParticleSystem:
     serializedVersion: 4
     type: 1
     collisionMode: 0
-    colliderForce: 0.3
+    colliderForce: 70.23
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 1
     multiplyColliderForceByCollisionAngle: 1
@@ -4908,6 +4908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  explosionEffect: {fileID: 0}
 --- !u!114 &3825082610987403460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4921,6 +4922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  explosionEffect: {fileID: 0}
 --- !u!1 &8127405537335744463
 GameObject:
   m_ObjectHideFlags: 0

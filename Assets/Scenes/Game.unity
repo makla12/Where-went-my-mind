@@ -1164,9 +1164,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 385604964640965513, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1508249463837780345, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508249463837780345, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057917270257847438, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3793018044818727615, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
       propertyPath: coinsText
@@ -1223,6 +1235,10 @@ PrefabInstance:
     - target: {fileID: 7727351488848663460, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607900606692969019, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
