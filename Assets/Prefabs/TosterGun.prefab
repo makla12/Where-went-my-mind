@@ -447,7 +447,7 @@ ParticleSystem:
     startRotationX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6.466445
+      scalar: -1.5707963
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -500,7 +500,7 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1415927
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -603,12 +603,12 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    randomizeRotationDirection: 0.5
+    randomizeRotationDirection: 1
     gravitySource: 0
     maxNumParticles: 3
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
@@ -1197,7 +1197,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -1254,7 +1254,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3.4906585
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1357,7 +1357,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 0
+    separateAxes: 1
   ColorModule:
     enabled: 0
     gradient:
@@ -3994,13 +3994,13 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.15
+      scalar: 0.05
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4052,14 +4052,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0
     textureMode: 0
-    textureScale: {x: 0.15, y: 0.46}
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0
-    worldSpace: 1
+    worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 1
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 1
     splitSubEmitterRibbons: 0
     attachRibbonsToTransform: 1
@@ -4130,8 +4130,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     widthOverTrail:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
+      minMaxState: 1
+      scalar: 0.16
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4143,17 +4143,17 @@ ParticleSystem:
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -4183,9 +4183,9 @@ ParticleSystem:
         m_RotationOrder: 4
     colorOverTrail:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.9938592, b: 0, a: 1}
+      minMaxState: 2
+      minColor: {r: 1, g: 0.95360917, b: 0.18679237, a: 0.16862746}
+      maxColor: {r: 1, g: 0.23483951, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4841,6 +4841,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 76abbf3478245d24c9c88efd5e5d7384, type: 2}
+  - {fileID: 2100000, guid: 6f046205251361b40a0b15df6acabbc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4905,7 +4906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53739b33dd484d4c9bd6b0c504aff7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 90
+  damage: 60
   explosionEffect: {fileID: 329894369726306437, guid: b0435407e2c7eed40ae76378de2d45c3, type: 3}
 --- !u!1 &8127405537335744463
 GameObject:
@@ -4990,7 +4991,7 @@ MonoBehaviour:
   timeBetweenShooting: 1
   spread: 0.05
   range: 45
-  reloadTime: 3
+  reloadTime: 3.5
   timeBetweenShots: 0.7
   magazineSize: 2
   bulletsPerTap: 1
