@@ -2737,6 +2737,10 @@ PrefabInstance:
       propertyPath: gunAnimator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8855512070712318344, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
+      propertyPath: m_Name
+      value: WatermellonParticles
+      objectReference: {fileID: 0}
     - target: {fileID: 8957775895893210394, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
       propertyPath: m_Name
       value: GamblingGun
