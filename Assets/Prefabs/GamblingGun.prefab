@@ -14800,7 +14800,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8957775895893210394}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7f5600e00f17bd48870265d26486772, type: 3}
   m_Name: 
@@ -14854,7 +14854,6 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   fpsCam: {fileID: 0}
   text: {fileID: 0}
-  states: 01000100
 --- !u!1001 &5709493536525695408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14871,6 +14870,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -7840867231617242486, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5b3d1cca6bf341d4d8533d077108ad2d, type: 2}
     - target: {fileID: -7801969683593910672, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
       propertyPath: m_Layer
       value: 2

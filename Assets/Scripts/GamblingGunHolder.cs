@@ -29,16 +29,28 @@ public class GamblingGunHolder : MonoBehaviour
     //Reference
     public Camera fpsCam;
     public TextMeshProUGUI text; 
-    public List<bool> states = new List<bool> { true, false, true, false };
 
-    private enum Roll
+    private enum RollOptions
     {
         lemon,
         grape,
         nfruit,
         seven
     }
-
+    RollOptions Rolled = RollOptions.lemon;
+    void Roll(){
+        RollOptions Rolled = (RollOptions)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(RollOptions)).Length);    
+    }
+    private void NextRoll(){
+        Roll();
+        if(Rolled == RollOptions.lemon){
+            currentParticle = lemonParticle;
+        }else if(Rolled == RollOptions.grape){
+            currentParticle = grapeParticle;
+        }else if(Rolled == RollOptions.nfruit){
+            currentParticle = nfruitParticle;
+        }else if(Rolled == RollOptions.seven){}
+    }
 
 
 
