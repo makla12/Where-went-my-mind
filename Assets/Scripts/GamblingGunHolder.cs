@@ -16,7 +16,10 @@ public class GamblingGunHolder : MonoBehaviour
     public CameraShake cameraShake;
     public float shakeDuration;
     public float shakeIntensity ;
-    public ParticleSystem MuzzleFlash;  
+    public ParticleSystem lemonParticle;  
+    public ParticleSystem grapeParticle;  
+    public ParticleSystem nfruitParticle;  
+    public ParticleSystem currentParticle;
     public Transform currentWeapon;
 
     //bools 
@@ -27,6 +30,14 @@ public class GamblingGunHolder : MonoBehaviour
     public Camera fpsCam;
     public TextMeshProUGUI text; 
     public List<bool> states = new List<bool> { true, false, true, false };
+
+    private enum Roll
+    {
+        lemon,
+        grape,
+        nfruit,
+        seven
+    }
 
 
 
@@ -63,7 +74,7 @@ public class GamblingGunHolder : MonoBehaviour
             
             if (particlesTransform != null)
             {
-                MuzzleFlash = particlesTransform.GetComponent<ParticleSystem>();
+                currentParticle = particlesTransform.GetComponent<ParticleSystem>();
             }
         }
     } 
@@ -86,11 +97,11 @@ public class GamblingGunHolder : MonoBehaviour
         readyToShoot = false;
         
         UpdateMuzzleFlash();
-        if (MuzzleFlash != null)
+        if (currentParticle != null)
         {
             
-            MuzzleFlash.Stop();
-            MuzzleFlash.Play();
+            currentParticle.Stop();
+            currentParticle.Play();
         }
         else{
             
