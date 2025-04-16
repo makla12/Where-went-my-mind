@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
 
 
 public class GunSystem : MonoBehaviour
@@ -12,16 +11,12 @@ public class GunSystem : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
-    public PauseMenu pauseMenu;
     public CameraShake cameraShake; // Assign this in the inspector
     public float shakeDuration = 0.2f;
     public float shakeIntensity = 0.5f;
     public ParticleSystem MuzzleFlash;  
     public float Particledelay = 0.1f;
-
-
-  
-
+    public Transform currentWeapon;
 
     //bools 
     bool shooting, readyToShoot, reloading;
@@ -58,24 +53,56 @@ public class GunSystem : MonoBehaviour
 
 
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && !pauseMenu.gameIsPaused) {
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale != 0) {
             gunAnimator.SetBool("Shooting", true);
             bulletsShot = bulletsPerTap;
             Shoot();
         }
         else gunAnimator.SetBool("Shooting", false);
     }
-    private IEnumerator ShootTwice()
+    
+    void UpdateMuzzleFlash()
+    {   
+        GameObject activeWeapon = FindActiveWeapon();
+
+        if (activeWeapon != null)
         {
-            MuzzleFlash.Play();
-            yield return new WaitForSeconds(Particledelay);
-            MuzzleFlash.Play();
+            Transform particlesTransform = activeWeapon.transform.Find("TostParticles");
+            
+            if (particlesTransform != null)
+            {
+                MuzzleFlash = particlesTransform.GetComponent<ParticleSystem>();
+            }
         }
+    } 
+    private GameObject FindActiveWeapon()
+    {
+        GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
+
+        foreach (GameObject weapon in weapons)
+        {
+            if (weapon.activeSelf) 
+            {
+                return weapon;
+            }
+        }
+
+        return null; 
+    }  
     private void Shoot()
     {
         readyToShoot = false;
-
-        StartCoroutine(ShootTwice());
+        
+        UpdateMuzzleFlash();
+        if (MuzzleFlash != null)
+        {
+            
+            MuzzleFlash.Stop();
+            MuzzleFlash.Play();
+        }
+        else{
+            
+        }
         
 
 
@@ -85,18 +112,18 @@ public class GunSystem : MonoBehaviour
 
 
         //Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+        // Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
 
         //RayCast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
-        {
-            if (rayHit.collider.CompareTag("Enemy")){
-                rayHit.collider.GetComponent<EnemyControler>().TakeDamage(damage);
-            }
-        }
+        // if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        // {
+        //     if (rayHit.collider.CompareTag("Enemy")){
+        //         rayHit.collider.GetComponent<EnemyControler>().TakeDamage(damage);
+        //     }
+        // }
 
-
+ 
         if (cameraShake != null)
         {
             cameraShake.ShakeCamera(shakeDuration, shakeIntensity);

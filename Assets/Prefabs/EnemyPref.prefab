@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5730267469420797895}
   - component: {fileID: 603454719962792408}
-  - component: {fileID: 4463321584720508043}
   - component: {fileID: 1154900282475081961}
   - component: {fileID: 2825707148283107437}
   - component: {fileID: 2710170878423692058}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 7412806338828590084}
   - component: {fileID: -1643469619666040408}
   - component: {fileID: 1170718877859455022}
+  - component: {fileID: 1791462003675007542}
   m_Layer: 8
   m_Name: EnemyPref
   m_TagString: Enemy
@@ -64,33 +64,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &4463321584720508043
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086375073514659403}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.48712635
-  m_Height: 1.0966121
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.57391196, z: 0}
 --- !u!136 &1154900282475081961
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -168,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34663bab38079dd49809f67b5545a349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalCollider: {fileID: 4463321584720508043}
+  normalCollider: {fileID: 1791462003675007542}
   crashingCollider: {fileID: 2825707148283107437}
   crashedCollider: {fileID: 1154900282475081961}
 --- !u!114 &7412806338828590084
@@ -183,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac4c68db02d8bb48baf8c4e8597de7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 100
   Coin: {fileID: 5884378261873455205, guid: 01591337f6ff92147977c0622a15b752, type: 3}
   HealthUp: {fileID: 7897012022180927259, guid: 4704bbf15c43e2647be5b587f1b1fdc2, type: 3}
 --- !u!114 &-1643469619666040408
@@ -223,6 +200,28 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!64 &1791462003675007542
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086375073514659403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: -2432090755550338912, guid: 0ab377229b6f28f4d9cbb06945a3e691, type: 3}
 --- !u!1001 &5734935790871638750
 PrefabInstance:
   m_ObjectHideFlags: 0
