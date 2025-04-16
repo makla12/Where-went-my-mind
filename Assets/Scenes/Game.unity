@@ -1196,6 +1196,14 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 559853629}
+    - target: {fileID: 4573391810870780783, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: weaponStartPrefab
+      value: 
+      objectReference: {fileID: 8575844692142758303, guid: 6472a7f31db5c134f81b283b4c11e09e, type: 3}
+    - target: {fileID: 4573391810870780783, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
+      propertyPath: weaponStartVisualPrefab
+      value: 
+      objectReference: {fileID: 4357118449180629203, guid: 1e05cddf21282cc40918dc169ce39bd5, type: 3}
     - target: {fileID: 7727351488848663460, guid: de9c5ec1c25c6b14493cf6564701c42a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2685,71 +2693,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70f25844b2c5dc48978ad2ddc0b805c, type: 3}
---- !u!1001 &5633726465797646738
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250999138767549061, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474463450504608176, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: gunAnimator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8855512070712318344, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_Name
-      value: WatermellonParticles
-      objectReference: {fileID: 0}
-    - target: {fileID: 8957775895893210394, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
-      propertyPath: m_Name
-      value: GamblingGun
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0447e833673f4304b8a5c2f0c1a83a2e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2762,4 +2705,3 @@ SceneRoots:
   - {fileID: 250275210}
   - {fileID: 640353214}
   - {fileID: 1572929528}
-  - {fileID: 5633726465797646738}
