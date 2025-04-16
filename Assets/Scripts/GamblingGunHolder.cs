@@ -37,10 +37,14 @@ public class GamblingGunHolder : MonoBehaviour
         nfruit,
         seven
     }
+    RollOptions PreRolled = RollOptions.lemon;
     RollOptions Rolled = RollOptions.lemon;
-    void Roll(){
-        RollOptions Rolled = (RollOptions)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(RollOptions)).Length);    
+
+    void Roll() {
+        PreRolled = Rolled;
+        Rolled = (RollOptions)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(RollOptions)).Length);
     }
+
     private void NextRoll(){
         Roll();
         if(Rolled == RollOptions.lemon){
@@ -52,7 +56,37 @@ public class GamblingGunHolder : MonoBehaviour
         }else if(Rolled == RollOptions.seven){}
     }
 
+    private void Reload()
+    {
+        reloading = true;
+        gunAnimator.SetBool("Reload", true);
+        NextRoll();
+        if(Rolled == RollOptions.seven){
 
+        }else{
+            if(Rolled == RollOptions.lemon && PreRolled == RollOptions.lemon){
+                gunAnimator.Play("Reload Lemon to Lemon");
+            }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.lemon){
+                gunAnimator.Play("Reload Lemon to Grape");
+            }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.lemon){
+                gunAnimator.Play("Reload Lemon to Watermelon");
+            }else if(Rolled == RollOptions.lemon && PreRolled == RollOptions.grape){
+                gunAnimator.Play("Reload Grape to Lemon");
+            }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.grape){
+                gunAnimator.Play("Reload Grape to Grape");
+            }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.grape){
+                gunAnimator.Play("Reload Grape to Watermelon");
+            }else if(Rolled == RollOptions.lemon && PreRolled == RollOptions.nfruit){
+                gunAnimator.Play("Reload Watermelon to Lemon");
+            }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.nfruit){
+                gunAnimator.Play("Reload Watermelon to Grape");
+            }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.nfruit){
+                gunAnimator.Play("Reload Watermelon to Watermelon");
+            } 
+
+        }
+        Invoke("ReloadFinished", reloadTime);
+    }
 
     private void Update()
     {
@@ -70,10 +104,8 @@ public class GamblingGunHolder : MonoBehaviour
 
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale != 0) {
-            gunAnimator.SetBool("Shooting", true);
             Shoot();
         }
-        else gunAnimator.SetBool("Shooting", false);
     }
     
     void UpdateMuzzleFlash()
@@ -139,16 +171,12 @@ public class GamblingGunHolder : MonoBehaviour
     {
         readyToShoot = true;
     }
-    private void Reload()
-    {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-        gunAnimator.SetBool("Reloading", true);
-    }
+  
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
         reloading = false;
-        gunAnimator.SetBool("Reloading", false);
+        gunAnimator.SetBool("Reload", false);
+        gunAnimator.SetBool("Ready", true);
     }
 }

@@ -22,7 +22,6 @@ public class MapControler : MonoBehaviour
             if(!rooms.Contains(new Vector2Int(room.x + 1, room.y))) posibleRooms.Add(new Vector2Int(room.x + 1, room.y));
             if(!rooms.Contains(new Vector2Int(room.x - 1, room.y))) posibleRooms.Add(new Vector2Int(room.x - 1, room.y));
         }
-
         return posibleRooms.ToList();
     }
 
