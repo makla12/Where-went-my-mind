@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 
 
-public class GunSystem : MonoBehaviour
+public class GunSystem : MonoBehaviour, IWeaponSystem
 {
     public Animator gunAnimator;
     //Gun stats
@@ -25,14 +25,18 @@ public class GunSystem : MonoBehaviour
     //Reference
     public Camera fpsCam;
     public Transform attackPoint;
-    public RaycastHit rayHit;
-    public LayerMask whatIsEnemy;
+    public TMP_Text text;
 
-    public TextMeshProUGUI text;
-
-
+    public void Initialize(Camera camera, ParticleSystem muzzleFlash, TMP_Text ammoText)
+    {
+        fpsCam = camera;
+        cameraShake = camera.GetComponent<CameraShake>();
+        MuzzleFlash = muzzleFlash;
+        text = ammoText;
+    }
     private void Awake()
     {
+        text = (TextMeshProUGUI)GetComponent<TMP_Text>();
         bulletsLeft = magazineSize;
         readyToShoot = true;
     }
