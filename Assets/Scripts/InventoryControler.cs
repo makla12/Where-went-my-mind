@@ -31,40 +31,67 @@ public class InventoryControler : MonoBehaviour
             Debug.Log("Inventory is full. Cannot add more weapons.");
             return;
         }
+
         Weapon newWeapon = new()
         {
             visualPrefab = visualPrefab,
             weaponPrefab = weaponPrefab,
             weapon = Instantiate(weaponPrefab, Camera.main.transform)
         };
-        GunSystem gunSystem = newWeapon.weapon.GetComponent<GunSystem>();
-        gunSystem.fpsCam = Camera.main;
-        gunSystem.cameraShake = Camera.main.GetComponent<CameraShake>();
-        gunSystem.MuzzleFlash = Camera.main.GetComponentInChildren<ParticleSystem>();
-        gunSystem.text = ammoText;
+
+        IWeaponSystem weaponSystem = newWeapon.weapon.GetComponent<IWeaponSystem>();
+        if (weaponSystem != null)
+        {
+            weaponSystem.Initialize(
+                Camera.main,
+                Camera.main.GetComponentInChildren<ParticleSystem>(),
+                ammoText
+            );
+        }
+        else
+        {
+            Debug.LogWarning("Weapon does not implement IWeaponSystem");
+        }
+
         weapons.Add(newWeapon);
-        weapons[currentWeaponIndex].weapon.SetActive(false);
+
+        if (weapons.Count > 1)
+            weapons[currentWeaponIndex].weapon.SetActive(false);
+
         currentWeaponIndex = weapons.Count - 1;
         weapons[currentWeaponIndex].weapon.SetActive(true);
     }
+
 
     public void ReplaceWeapon(GameObject newVisualPrefab, GameObject newWeaponPrefab, Vector3 oldWeaponPosition)
     {
         GameObject gunPickUp = Instantiate(weaponPickupPrefab, oldWeaponPosition, Quaternion.identity);
         gunPickUp.GetComponent<GunPickUp>().gunVisualPrefab = weapons[currentWeaponIndex].visualPrefab;
         gunPickUp.GetComponent<GunPickUp>().gunPrefab = weapons[currentWeaponIndex].weaponPrefab;
+
         Destroy(weapons[currentWeaponIndex].weapon);
+
         Weapon newWeapon = new()
         {
             visualPrefab = newVisualPrefab,
             weaponPrefab = newWeaponPrefab,
             weapon = Instantiate(newWeaponPrefab, Camera.main.transform)
         };
-        GunSystem gunSystem = newWeapon.weapon.GetComponent<GunSystem>();
-        gunSystem.fpsCam = Camera.main;
-        gunSystem.cameraShake = Camera.main.GetComponent<CameraShake>();
-        gunSystem.MuzzleFlash = Camera.main.GetComponentInChildren<ParticleSystem>();
-        gunSystem.text = ammoText;
+
+        IWeaponSystem weaponSystem = newWeapon.weapon.GetComponent<IWeaponSystem>();
+        if (weaponSystem != null)
+        {
+            weaponSystem.Initialize(
+                Camera.main,
+                Camera.main.GetComponentInChildren<ParticleSystem>(),
+                ammoText
+            );
+        }
+        else
+        {
+            Debug.LogWarning("New weapon does not implement IWeaponSystem");
+        }
+
         weapons[currentWeaponIndex] = newWeapon;
     }
 

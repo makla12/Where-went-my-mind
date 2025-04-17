@@ -1,11 +1,8 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
-using System;
-using UnityEditor.Experimental.GraphView;
 
 
-public class GamblingGunHolder : MonoBehaviour
+public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
 {
     public Animator gunAnimator;
     //Gun stats
@@ -28,7 +25,7 @@ public class GamblingGunHolder : MonoBehaviour
 
     //Reference
     public Camera fpsCam;
-    public TextMeshProUGUI text; 
+    public TMP_Text text; 
 
     private enum RollOptions
     {
@@ -39,7 +36,13 @@ public class GamblingGunHolder : MonoBehaviour
     }
     RollOptions PreRolled = RollOptions.lemon;
     RollOptions Rolled = RollOptions.lemon;
-
+    public void Initialize(Camera camera, ParticleSystem muzzleFlash, TMP_Text ammoText)
+    {
+        fpsCam = camera;
+        cameraShake = camera.GetComponent<CameraShake>();
+        currentParticle = muzzleFlash;
+        text = ammoText;
+    }
     void Roll() {
         PreRolled = Rolled;
         Rolled = (RollOptions)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(RollOptions)).Length);

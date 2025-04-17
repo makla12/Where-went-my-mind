@@ -14764,7 +14764,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4250999138767549061}
-  - component: {fileID: 6474463450504608176}
   - component: {fileID: 2700951839166751361}
   m_Layer: 0
   m_Name: GamblingGun
@@ -14793,40 +14792,6 @@ Transform:
   - {fileID: 1476925054449273296}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6474463450504608176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8957775895893210394}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f5600e00f17bd48870265d26486772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunAnimator: {fileID: 0}
-  damage: 50
-  timeBetweenShooting: 1
-  spread: 0.05
-  range: 45
-  reloadTime: 3.5
-  timeBetweenShots: 0.7
-  magazineSize: 2
-  bulletsPerTap: 1
-  allowButtonHold: 1
-  cameraShake: {fileID: 0}
-  shakeDuration: 0.2
-  shakeIntensity: 0.5
-  MuzzleFlash: {fileID: 1781932895100251841}
-  Particledelay: 0.1
-  currentWeapon: {fileID: 0}
-  fpsCam: {fileID: 0}
-  attackPoint: {fileID: 1476925054449273296}
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  text: {fileID: 0}
 --- !u!114 &2700951839166751361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14839,7 +14804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c9232d06ce78749968cd1bf3b4a042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunAnimator: {fileID: 0}
+  gunAnimator: {fileID: 6634812516083209018}
   timeBetweenShooting: 0.5
   reloadTime: 1.5
   magazineSize: 5
@@ -15226,5 +15191,10 @@ PrefabInstance:
 --- !u!4 &24748043386428040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3500460014136483016, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
+  m_PrefabInstance: {fileID: 5709493536525695408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6634812516083209018 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -7840867231617242486, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
   m_PrefabInstance: {fileID: 5709493536525695408}
   m_PrefabAsset: {fileID: 0}
