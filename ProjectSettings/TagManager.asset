@@ -9,6 +9,7 @@ TagManager:
   - GunCamera
   - Coin
   - Weapon
+  - WeaponPickUp
   layers:
   - Default
   - TransparentFX

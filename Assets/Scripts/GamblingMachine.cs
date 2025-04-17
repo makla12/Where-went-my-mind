@@ -1,9 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class GamblingMachine : MonoBehaviour
 {
-    public GameObject pickUp; // Prefab for the visual representation of the gambling machine
-
+    public GameObject[] pickUps;
     void Start()
     {
         
@@ -12,12 +12,21 @@ public class GamblingMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         GameObject InteractText = GameObject.FindWithTag("InteractText");
         if (Vector3.Distance(transform.position, Camera.main.transform.position) < 3f)
         {
+            if (InteractText != null)
+            {
+                InteractText.GetComponent<TextMeshProUGUI>().text = "Press E to gamble";
+                InteractText.SetActive(true);
+            }
+            // InteractText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Instantiate(pickUp, new Vector3(transform.position.x + 2, transform.position.y + 1, transform.position.z), transform.rotation);
+                Instantiate(pickUps[Random.Range(0, pickUps.Length)], new Vector3(transform.position.x + 3, transform.position.y + 1, transform.position.z), transform.rotation);
             }
+        } else {
+            InteractText.SetActive(false);
         }
     }
 }
