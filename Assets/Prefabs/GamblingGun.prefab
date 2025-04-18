@@ -14806,7 +14806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunAnimator: {fileID: 6634812516083209018}
   timeBetweenShooting: 0.5
-  reloadTime: 1.5
+  reloadTime: 3.5
   magazineSize: 5
   allowButtonHold: 0
   cameraShake: {fileID: 0}
@@ -14921,15 +14921,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3500460014136483016, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.52
+      value: 0.39130518
       objectReference: {fileID: 0}
     - target: {fileID: -3500460014136483016, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.52
+      value: 0.39130518
       objectReference: {fileID: 0}
     - target: {fileID: -3500460014136483016, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.52
+      value: 0.39130518
       objectReference: {fileID: 0}
     - target: {fileID: -3500460014136483016, guid: fb72ec1d2e90ad3408913841fa56ef55, type: 3}
       propertyPath: m_LocalPosition.x
