@@ -32,7 +32,7 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
         lemon,
         grape,
         nfruit,
-        seven
+        seven,
     }
     RollOptions PreRolled = RollOptions.lemon;
     RollOptions Rolled = RollOptions.lemon;
@@ -42,6 +42,7 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
         cameraShake = camera.GetComponent<CameraShake>();
         currentParticle = muzzleFlash;
         text = ammoText;
+        
     }
     void Roll() {
         PreRolled = Rolled;
@@ -64,30 +65,43 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
         reloading = true;
         gunAnimator.SetBool("Reload", true);
         NextRoll();
-        if(Rolled == RollOptions.seven){
-
-        }else{
-            if(Rolled == RollOptions.lemon && PreRolled == RollOptions.lemon){
-                gunAnimator.Play("Reload Lemon to Lemon");
-            }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.lemon){
-                gunAnimator.Play("Reload Lemon to Grape");
-            }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.lemon){
-                gunAnimator.Play("Reload Lemon to Watermelon");
-            }else if(Rolled == RollOptions.lemon && PreRolled == RollOptions.grape){
-                gunAnimator.Play("Reload Grape to Lemon");
-            }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.grape){
-                gunAnimator.Play("Reload Grape to Grape");
-            }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.grape){
-                gunAnimator.Play("Reload Grape to Watermelon");
-            }else if(Rolled == RollOptions.lemon && PreRolled == RollOptions.nfruit){
-                gunAnimator.Play("Reload Watermelon to Lemon");
-            }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.nfruit){
-                gunAnimator.Play("Reload Watermelon to Grape");
-            }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.nfruit){
-                gunAnimator.Play("Reload Watermelon to Watermelon");
-            } 
-
+        Debug.Log("Reload Gambling "+PreRolled+" to " +Rolled);
+    
+        if(Rolled == RollOptions.lemon && PreRolled == RollOptions.lemon){
+            gunAnimator.Play("Reload Lemon to Lemon");
+        }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.lemon){
+            gunAnimator.Play("Reload Lemon to Grape");
+        }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.lemon){
+            gunAnimator.Play("Reload Lemon to Watermelon");
+        }else if(Rolled == RollOptions.seven && PreRolled == RollOptions.lemon){
+            gunAnimator.Play("Reload Lemon to Seven");
+        }else if(Rolled == RollOptions.lemon && PreRolled == RollOptions.grape){
+            gunAnimator.Play("Reload Grape to Lemon");
+        }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.grape){
+            gunAnimator.Play("Reload Grape to Grape");
+        }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.grape){
+            gunAnimator.Play("Reload Grape to Watermelon");
+        }else if(Rolled == RollOptions.seven && PreRolled == RollOptions.grape){
+            gunAnimator.Play("Reload Grape to Seven");
+        }else if(Rolled == RollOptions.lemon && PreRolled == RollOptions.nfruit){
+            gunAnimator.Play("Reload Watermelon to Lemon");
+        }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.nfruit){
+            gunAnimator.Play("Reload Watermelon to Grape");
+        }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.nfruit){
+            gunAnimator.Play("Reload Watermelon to Watermelon");
+        }else if(Rolled == RollOptions.seven && PreRolled == RollOptions.nfruit){
+            gunAnimator.Play("Reload Watermelon to Seven");
+        }else if(Rolled == RollOptions.lemon && PreRolled == RollOptions.seven){
+            gunAnimator.Play("Reload Seven to Lemon");
+        }else if(Rolled == RollOptions.grape && PreRolled == RollOptions.seven){
+            gunAnimator.Play("Reload Seven to Grape");
+        }else if(Rolled == RollOptions.nfruit && PreRolled == RollOptions.seven){
+            gunAnimator.Play("Reload Seven to Watermelon");
+        }else if(Rolled == RollOptions.seven && PreRolled == RollOptions.seven){
+            gunAnimator.Play("Reload Seven to Seven");
         }
+
+        
         Invoke("ReloadFinished", reloadTime);
     }
 
@@ -102,7 +116,7 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft <= magazineSize && !reloading) Reload();
 
 
         //Shoot
@@ -179,6 +193,15 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
     {
         bulletsLeft = magazineSize;
         reloading = false;
+        if(Rolled == RollOptions.lemon){
+            gunAnimator.Play("Idle");
+        }else if(Rolled == RollOptions.grape){
+            gunAnimator.Play("Grape Idle");
+        }else if(Rolled == RollOptions.nfruit){
+            gunAnimator.Play("Watermelon Idle");
+        }else if(Rolled == RollOptions.seven){
+            gunAnimator.Play("Seven Idle");
+        }
         gunAnimator.SetBool("Reload", false);
         gunAnimator.SetBool("Ready", true);
     }
