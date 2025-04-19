@@ -49,22 +49,11 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
         Rolled = (RollOptions)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(RollOptions)).Length);
     }
 
-    private void NextRoll(){
-        Roll();
-        if(Rolled == RollOptions.lemon){
-            currentParticle = lemonParticle;
-        }else if(Rolled == RollOptions.grape){
-            currentParticle = grapeParticle;
-        }else if(Rolled == RollOptions.nfruit){
-            currentParticle = nfruitParticle;
-        }else if(Rolled == RollOptions.seven){}
-    }
-
     private void Reload()
     {
         reloading = true;
         gunAnimator.SetBool("Reload", true);
-        NextRoll();
+        Roll();
         Debug.Log("Reload Gambling "+PreRolled+" to " +Rolled);
     
         if(Rolled == RollOptions.lemon && PreRolled == RollOptions.lemon){
@@ -121,52 +110,40 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
 
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale != 0) {
+            Debug.Log(" readyToShoot: " +readyToShoot+" shooting: " +shooting+" reloading: " +reloading+" bulletsLeft: " +bulletsLeft);
             Shoot();
         }
     }
     
-    void UpdateMuzzleFlash()
-    {   
-        GameObject activeWeapon = FindActiveWeapon();
-
-        if (activeWeapon != null)
-        {
-            Transform particlesTransform = activeWeapon.transform.Find("TostParticles");
-            
-            if (particlesTransform != null)
-            {
-                currentParticle = particlesTransform.GetComponent<ParticleSystem>();
-            }
-        }
-    } 
-    private GameObject FindActiveWeapon()
-    {
-        GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
-
-        foreach (GameObject weapon in weapons)
-        {
-            if (weapon.activeSelf) 
-            {
-                return weapon;
-            }
-        }
-
-        return null; 
-    }  
     private void Shoot()
     {
         readyToShoot = false;
+        Debug.Log(" Nigga shot: " +Rolled);
+
+        if(Rolled == RollOptions.lemon){
+            gunAnimator.Play("Shot Fired Lemon");
+            currentParticle = lemonParticle;
+        }else if(Rolled == RollOptions.grape){
+            gunAnimator.Play("Shot Fired Grape");
+            currentParticle = grapeParticle;
+        }else if(Rolled == RollOptions.nfruit){
+            gunAnimator.Play("Shot Fired Watermelon");
+            currentParticle = nfruitParticle;
+        }else if(Rolled == RollOptions.seven){
+            gunAnimator.Play("Shot Fired Seven");
+            nfruitParticle.Play();
+            grapeParticle.Play();
+            lemonParticle.Play();
+        }
         
-        UpdateMuzzleFlash();
         if (currentParticle != null)
         {
             
             currentParticle.Stop();
             currentParticle.Play();
         }
-        else{
-            
-        }
+        Invoke("ResetAnim", 0.5f);
+        
         
 
  
@@ -181,8 +158,18 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
 
 
         Invoke("ResetShot", timeBetweenShooting);
-
-
+    }
+    private void ResetAnim()
+    {
+        if(Rolled == RollOptions.lemon){
+            gunAnimator.Play("Idle");
+        }else if(Rolled == RollOptions.grape){
+            gunAnimator.Play("Grape Idle");
+        }else if(Rolled == RollOptions.nfruit){
+            gunAnimator.Play("Watermelon Idle");
+        }else if(Rolled == RollOptions.seven){
+            gunAnimator.Play("Seven Idle");
+        }
     }
     private void ResetShot()
     {
@@ -201,7 +188,9 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
             gunAnimator.Play("Watermelon Idle");
         }else if(Rolled == RollOptions.seven){
             gunAnimator.Play("Seven Idle");
+            currentParticle = null;
         }
+        readyToShoot = true;
         gunAnimator.SetBool("Reload", false);
         gunAnimator.SetBool("Ready", true);
     }
