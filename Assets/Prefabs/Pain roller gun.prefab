@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5662019747507310543}
   - component: {fileID: 2830592408550607970}
   - component: {fileID: 3825082610987403460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PaintParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4907,7 +4907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53739b33dd484d4c9bd6b0c504aff7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   explosionEffect: {fileID: 0}
 --- !u!114 &3825082610987403460
 MonoBehaviour:
@@ -4932,7 +4932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5397792312698250231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,7 +4964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4564628222804701009}
   - component: {fileID: 970309632699140128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pain roller gun
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -5019,9 +5019,6 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 5397792312698250231}
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 4294967295
   text: {fileID: 0}
 --- !u!1001 &8793577276399757769
 PrefabInstance:
@@ -5031,6 +5028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4564628222804701009}
     m_Modifications:
+    - target: {fileID: -8807897295724457881, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -7840867231617242486, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
       propertyPath: m_Controller
       value: 
@@ -5042,6 +5043,38 @@ PrefabInstance:
     - target: {fileID: -7840867231617242486, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6614861236560504096, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -6576195238790866569, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -6121160219561268365, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -5994751897478111734, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -5944766127109281891, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -5413240088338721426, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -5163081615608081989, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -4281042764377546662, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -3500460014136483016, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5083,9 +5116,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -335951904890331431, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -294244722927950702, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 452286934228840044, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612290394380771743, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324954614278000129, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4357118449180629203, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
       propertyPath: m_Name
       value: paintRoller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357118449180629203, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858077932589610839, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941624098744794370, guid: a812d1ee97de1ed42b349a704b82062e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
