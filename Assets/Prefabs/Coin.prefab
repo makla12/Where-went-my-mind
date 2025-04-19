@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5470190295991396439}
   - component: {fileID: 7912540152730773798}
   - component: {fileID: 3860026096190586326}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -84,6 +84,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8255800180222784070}
     m_Modifications:
+    - target: {fileID: -855364159965149349, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -506873943547915741, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2788411489616176676, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0520854
@@ -139,6 +147,22 @@ PrefabInstance:
     - target: {fileID: 3314592143421715944, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
       propertyPath: m_Name
       value: coin_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314592143421715944, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110558139684510327, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051542607089397008, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055957648018572695, guid: 05a41fdb907a9914ba256ce83ff45b7d, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
