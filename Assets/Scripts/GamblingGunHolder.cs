@@ -121,6 +121,7 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
 
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && Time.timeScale != 0) {
+            Debug.Log(" readyToShoot: " +readyToShoot+" shooting: " +shooting+" reloading: " +reloading+" bulletsLeft: " +bulletsLeft);
             Shoot();
         }
     }
@@ -131,12 +132,12 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
 
         if (activeWeapon != null)
         {
-            Transform particlesTransform = activeWeapon.transform.Find("TostParticles");
+            Transform particlesTransform = activeWeapon.transform.Find("LemonParticles");
             
             if (particlesTransform != null)
             {
                 currentParticle = particlesTransform.GetComponent<ParticleSystem>();
-            }
+            }                           
         }
     } 
     private GameObject FindActiveWeapon()
@@ -156,8 +157,22 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
     private void Shoot()
     {
         readyToShoot = false;
+        Debug.Log(" Nigga shot: " +Rolled);
+
+        if(Rolled == RollOptions.lemon){
+            gunAnimator.Play("Shot Fired Lemon");
+            currentParticle = lemonParticle;
+        }else if(Rolled == RollOptions.grape){
+            gunAnimator.Play("Shot Fired Grape");
+            currentParticle = grapeParticle;
+        }else if(Rolled == RollOptions.nfruit){
+            gunAnimator.Play("Shot Fired Watermelon");
+            currentParticle = nfruitParticle;
+        }else if(Rolled == RollOptions.seven){
+            gunAnimator.Play("Shot Fired Seven");
+        }
         
-        UpdateMuzzleFlash();
+        // UpdateMuzzleFlash();
         if (currentParticle != null)
         {
             
@@ -201,7 +216,9 @@ public class GamblingGunHolder : MonoBehaviour, IWeaponSystem
             gunAnimator.Play("Watermelon Idle");
         }else if(Rolled == RollOptions.seven){
             gunAnimator.Play("Seven Idle");
+            currentParticle = null;
         }
+        readyToShoot = true;
         gunAnimator.SetBool("Reload", false);
         gunAnimator.SetBool("Ready", true);
     }
